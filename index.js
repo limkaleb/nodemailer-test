@@ -1,16 +1,17 @@
+require('dotenv').config()
 const nodemailer = require('nodemailer')
 
 let mailTransporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'kaleb1.test@gmail.com',
-        pass: 'fkecubczictwouzj',
+        user: process.env.EMAIL_FROM,
+        pass: process.env.PASSWORD,
     }
 })
 
 let details = {
-    from: 'kaleb1.test@gmail.com',
-    to: 'kaleb@pickupp.io',
+    from: process.env.EMAIL_FROM,
+    to: process.env.EMAIL_TO,
     subject: 'Testing Nodemailer',
     text: 'Testing Nodemailer',
 }
